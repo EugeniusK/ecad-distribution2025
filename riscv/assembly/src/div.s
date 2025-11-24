@@ -177,7 +177,8 @@ loop12:
     sub t5, t5, t6       # i = i - 1
 loop11:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 2048      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else11   # if (R >= D) then go else11
