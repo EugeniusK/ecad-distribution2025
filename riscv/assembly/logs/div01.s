@@ -20,10 +20,13 @@ loop:
     and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
-    blt  t1, a1, else    # if (R < D) then go else
+    bge  t1, a1, else    # if (R >= D) then go else
+    blez t5, end         # if i = 0 then end
+    sub t5, t5, t6       # i = i - 1
+    j    loop            # repeat loop
+else:
     sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
-else:
     blez t5, end         # if i = 0 then end
     sub t5, t5, t6       # i = i - 1
     j    loop            # repeat loop
