@@ -16,7 +16,7 @@ cycles: 490
 189 bubbles occured in the divider code (bubbles 10~198)
 
 Branch was not taken 34 times (no bubbles)
-Branch was taken 31 times (3 bubbles)
+Branch was taken 31 times (3 bubbles per)
 
 `JAL` was called 31 times (3 bubbles per)
 
@@ -35,7 +35,7 @@ cycles:  406
 105 bubbles occured in the divider code (bubbles 10~114)
 
 Branch was not taken 62 times (no bubbles)
-Branch was taken 3 times (3 bubbles)
+Branch was taken 3 times (3 bubbles per)
 
 `JAL` was called 31 times (3 bubbles per)
 
@@ -49,3 +49,43 @@ Now, the only possible optimisations are reducing bubbles (only from `JAL` with 
 
 Unravelling the loop is an option as this reduces the number of `JAL`. Furthermore, the number of iterations of the loop (32) is insignificant so the code can be copied and pasted with minor impact on program size.
 
+## Version 02 - unravel loop, ~440 lines of code 
+
+start:   24
+end:     282
+cycles:  259
+
+18 bubbles occured in the divider code (bubbles 10~27)
+
+Branch was not taken 31 times (no bubbles)
+Branch was taken 2 times (3 bubbles per)
+
+`JAL` was called 3 times (3 bubbles per)
+
+`JALR` was called 1 time (3 bubbles per)
+
+$31 * 0 + 2 * 3 + 3 * 3 + 1 * 3 = 18$
+
+At this point, it is impossible to reduce the number of branches while maintaining the logic of an `if` statement.
+
+Only optimisation thinkable at the moment is using immediates instead of storing `1 << i` in a register and using it in a later calculation. Due to RISC-V, only immedates of only 12 bits can be used and as is two's complement, negative number has to be used for adding 2**11. So only for i in $[0,11]$, immediates can be used.
+
+## Version 03 - use immediates, ~430 lines of code
+
+start:   24
+end:     270
+cycles:  247
+
+
+18 bubbles occured in the divider code (bubbles 10~27)
+
+Branch was not taken 31 times (no bubbles)
+Branch was taken 2 times (3 bubbles per)
+
+`JAL` was called 3 times (3 bubbles per)
+
+`JALR` was called 1 time (3 bubbles per)
+
+$31 * 0 + 2 * 3 + 3 * 3 + 1 * 3 = 18$
+
+I have absolutely no clue on what can be done further, stop here.

@@ -63,25 +63,50 @@ init = """div:
 print(start)
 print(init)
 for i in range(31, -1, -1):
-    shard = f"""loop{i}:    
+    if i >= 12:
+        shard = f"""loop{i}:    
     slli t1, t1, 1       # R = R << 1
     sll  t3, t6, t5      # mask_i = 1 << i   
     and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
-    bge  t1, a1, else{i}   # if (R >= D) then go else{i}
-    sub t5, t5, t6       # i = i - 1"""
+    bge  t1, a1, else{i}   # if (R >= D) then go else{i}"""
+    elif i== 11:
+        shard = f"""loop{i}:    
+    slli t1, t1, 1       # R = R << 1
+    andi  t2, a0, {-2**i}      # N_i = N & mask_i (immediate)
+    srl  t2, t2, t5      # N_i = N_i >> i
+    or   t1, t1, t2      # R = R | N_i
+    bge  t1, a1, else{i}   # if (R >= D) then go else{i}"""
+    else:
+        shard = f"""loop{i}:    
+    slli t1, t1, 1       # R = R << 1
+    andi  t2, a0, {2**i}      # N_i = N & mask_i (immediate)
+    srl  t2, t2, t5      # N_i = N_i >> i
+    or   t1, t1, t2      # R = R | N_i
+    bge  t1, a1, else{i}   # if (R >= D) then go else{i}"""
     print(shard)
+    if i != 0:
+        print("""    sub t5, t5, t6       # i = i - 1""")
+    else:
+        print("    j    end")
 
 for i in range(31, -1, -1):
-    shard = f"""else{i}:
+    if i >= 11:
+        shard = f"""else{i}:
     sub  t1, t1, a1      # R = R - D
-    or   t0, t0, t3      # Q = Q | mask_i
-    sub t5, t5, t6       # i = i - 1
-    j    loop{i-1}           # repeat loop"""
+    or   t0, t0, t3      # Q = Q | mask_i"""
+    else:
+        shard = f"""else{i}:
+    sub  t1, t1, a1      # R = R - D
+    ori   t0, t0, {2**i}      # Q = Q | mask_i (immediate)"""
     print(shard)
+    if i != 0:
+        print("    sub t5, t5, t6       # i = i - 1")
+        print(f"""    j    loop{i-1}           # repeat loop""")
 
-end = """mv   a0, t0
+end = """end:
+    mv   a0, t0
     mv   a1, t1
     ret
 return_zero:

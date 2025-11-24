@@ -177,84 +177,96 @@ loop12:
     sub t5, t5, t6       # i = i - 1
 loop11:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, -2048      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else11   # if (R >= D) then go else11
     sub t5, t5, t6       # i = i - 1
 loop10:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 1024      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else10   # if (R >= D) then go else10
     sub t5, t5, t6       # i = i - 1
 loop9:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 512      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else9   # if (R >= D) then go else9
     sub t5, t5, t6       # i = i - 1
 loop8:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 256      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else8   # if (R >= D) then go else8
     sub t5, t5, t6       # i = i - 1
 loop7:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 128      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else7   # if (R >= D) then go else7
     sub t5, t5, t6       # i = i - 1
 loop6:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 64      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else6   # if (R >= D) then go else6
     sub t5, t5, t6       # i = i - 1
 loop5:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 32      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else5   # if (R >= D) then go else5
     sub t5, t5, t6       # i = i - 1
 loop4:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 16      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else4   # if (R >= D) then go else4
     sub t5, t5, t6       # i = i - 1
 loop3:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 8      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else3   # if (R >= D) then go else3
     sub t5, t5, t6       # i = i - 1
 loop2:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 4      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else2   # if (R >= D) then go else2
     sub t5, t5, t6       # i = i - 1
 loop1:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 2      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else1   # if (R >= D) then go else1
     sub t5, t5, t6       # i = i - 1
 loop0:    
     slli t1, t1, 1       # R = R << 1
-    andi  t2, a0, 1      # N_i = N & mask_i (immediate)
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else0   # if (R >= D) then go else0
@@ -366,57 +378,58 @@ else11:
     j    loop10           # repeat loop
 else10:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 1024      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop9           # repeat loop
 else9:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 512      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop8           # repeat loop
 else8:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 256      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop7           # repeat loop
 else7:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 128      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop6           # repeat loop
 else6:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 64      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop5           # repeat loop
 else5:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 32      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop4           # repeat loop
 else4:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 16      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop3           # repeat loop
 else3:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 8      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop2           # repeat loop
 else2:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 4      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop1           # repeat loop
 else1:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 2      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop0           # repeat loop
 else0:
     sub  t1, t1, a1      # R = R - D
-    ori   t0, t0, 1      # Q = Q | mask_i (immediate)
+    or   t0, t0, t3      # Q = Q | mask_i
+    sub t5, t5, t6       # i = i - 1
 end:
     mv   a0, t0
     mv   a1, t1
