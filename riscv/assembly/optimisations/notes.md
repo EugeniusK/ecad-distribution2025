@@ -1,3 +1,5 @@
+all code in <https://github.com/EugeniusK/ecad-distribution2025/tree/main/riscv/assembly/optimisations>
+
 The number of cycles running the code in div.s is defined from
 
 - the cycle that the first line of code inside div.s ran (after `jal` and bubbles from calling `div`)
