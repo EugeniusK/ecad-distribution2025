@@ -270,7 +270,7 @@ loop0:
     srl  t2, t2, t5      # N_i = N_i >> i
     or   t1, t1, t2      # R = R | N_i
     bge  t1, a1, else0   # if (R >= D) then go else0
-    sub t5, t5, t6       # i = i - 1
+    j    end
 else31:
     sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
@@ -430,6 +430,7 @@ else0:
     sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
+end:
     mv   a0, t0
     mv   a1, t1
     ret
