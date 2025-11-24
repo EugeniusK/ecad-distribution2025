@@ -17,6 +17,14 @@ main:
     # example of printing value of register a2 
     DEBUG_PRINT a2
 
+    li    a0, 32            # a0 = 32
+    li    a1, 3             # a1 = 3
+    call    div
+    DEBUG_PRINT a0          # display the quotient
+    DEBUG_PRINT a1          # display the remainder
+
+
+
 # *** End useful work ***
 
 
