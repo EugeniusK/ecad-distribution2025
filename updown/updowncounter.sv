@@ -7,6 +7,16 @@ module updowncounter
    );
 
    // insert your code here
+   always_ff @(posedge clk or posedge rst)
+    if (rst)
+      count <= 0;
+    else
+      if (up)
+        count <= count + 1;
+      else
+        count <= count -1;
+      
+
    assign count = 0;
 
 endmodule

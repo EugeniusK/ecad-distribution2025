@@ -6,22 +6,53 @@ csrw 0x800, \reg
 .global div              # Export the symbol 'div' so we can call it from other files
 .type div, @function
 div:
-    addi sp, sp, -32     # Allocate stack space
-
-    # store any callee-saved register you might overwrite
-    sw   ra, 28(sp)      # Function calls would overwrite
-    sw   s0, 24(sp)      # If t0-t6 is not enough, can use s0-s11 if I save and restore them
-    # ...
-
-    # do your work
-    # example of printing inputs a0 and a1
-    DEBUG_PRINT a0
-    DEBUG_PRINT a1
-
-    # load every register you stored above
-    lw   ra, 28(sp)
-    lw   s0, 24(sp)
-    # ...
-    addi sp, sp, 32      # Free up stack space
+    # C-implementation
+    # unsigned int Q = 0;
+    # unsigned int R = 0;
+    # unsigned int N = 75;
+    # unsigned int D = 13;
+    # 
+    # 
+    # unsigned int N_i = 0;
+    # unsigned int mask_i = 0;
+    # 
+    # for (int i=31;i>=0;i--) {
+    #     R = R << 1;
+    #     mask_i = 1 << i;
+    #     
+    #     N_i = (N & mask_i) >> i;
+    #     R = R | N_i;
+    #     if (R >= D) {
+    #         R = R - D;
+    #         Q = Q | mask_i;
+    #     }
+    # }
+    beqz a1, return_zero # if dividing by zero, return 0,0
+    li   t0, 0           # Q = 0
+    li   t1, 0           # R = 0
+    li   t2, 0           # N_i = 0
+    li   t3, 0           # mask_i = 0
+    li   t4, 0           # condition variable (for loop)
+    li   t5, 31          # loop variable (for loop)
+    li   t6, 1           # hold value "1"
+loop:
+    slli t1, t1, 1       # R = R << 1
+    sll  t3, t6, t5      # mask_i = 1 << i   
+    and  t2, a0, t3      # N_i = N & mask_i  
+    srl  t2, t2, t5      # N_i = N_i >> i
+    or   t1, t1, t2      # R = R | N_i
+    blt  t1, a1, else    # if (R < D) then go else
+    sub  t1, t1, a1      # R = R - D
+    or   t0, t0, t3      # Q = Q | mask_i
+else:
+    blez t5, end         # if i = 0 then end
+    sub t5, t5, t6       # i = i - 1
+    j    loop            # repeat loop
+end:
+    mv   a0, t0
+    mv   a1, t1
     ret
-
+return_zero:
+    li   a0, 0
+    li   a1, 0
+    ret
