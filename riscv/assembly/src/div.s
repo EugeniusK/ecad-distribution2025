@@ -272,162 +272,162 @@ loop0:
     bge  t1, a1, else0   # if (R >= D) then go else0
     sub t5, t5, t6       # i = i - 1
 else31:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop30           # repeat loop
 else30:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop29           # repeat loop
 else29:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop28           # repeat loop
 else28:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop27           # repeat loop
 else27:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop26           # repeat loop
 else26:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop25           # repeat loop
 else25:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop24           # repeat loop
 else24:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop23           # repeat loop
 else23:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop22           # repeat loop
 else22:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop21           # repeat loop
 else21:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop20           # repeat loop
 else20:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop19           # repeat loop
 else19:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop18           # repeat loop
 else18:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop17           # repeat loop
 else17:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop16           # repeat loop
 else16:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop15           # repeat loop
 else15:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop14           # repeat loop
 else14:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop13           # repeat loop
 else13:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop12           # repeat loop
 else12:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop11           # repeat loop
 else11:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop10           # repeat loop
 else10:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop9           # repeat loop
 else9:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop8           # repeat loop
 else8:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop7           # repeat loop
 else7:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop6           # repeat loop
 else6:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop5           # repeat loop
 else5:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop4           # repeat loop
 else4:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop3           # repeat loop
 else3:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop2           # repeat loop
 else2:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop1           # repeat loop
 else1:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     j    loop0           # repeat loop
 else0:
-    lsub  t1, t1, a1      # R = R - D
+    sub  t1, t1, a1      # R = R - D
     or   t0, t0, t3      # Q = Q | mask_i
     sub t5, t5, t6       # i = i - 1
     mv   a0, t0
